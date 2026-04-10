@@ -145,14 +145,15 @@ def compute_gospel_vectors():
     VECTOR_DIR.mkdir(parents=True, exist_ok=True)
 
     # Save all-layer vectors
-    torch.save(vectors, VECTOR_DIR / "gospel_vectors_all_layers.pt")
+    torch.save(vectors, VECTOR_DIR / "lukeacts_vectors_all_layers.pt")
 
     # Save best-layer vectors separately for easy loading
     best_vectors = vectors[best_layer]  # [4, hidden_dim]
-    torch.save(best_vectors, VECTOR_DIR / "gospel_vectors_best.pt")
+    torch.save(best_vectors, VECTOR_DIR / "lukeacts_vectors_best.pt")
 
     # Save metadata
     meta = {
+        "experiment_name": "LukeActsVec",
         "gospels": GOSPELS,
         "best_layer": best_layer,
         "best_accuracy": best_accuracy,
@@ -165,12 +166,12 @@ def compute_gospel_vectors():
         json.dump(meta, f, indent=2)
 
     print(f"\nSaved vectors to {VECTOR_DIR}/")
-    print(f"  gospel_vectors_all_layers.pt: {vectors.shape}")
-    print(f"  gospel_vectors_best.pt: {best_vectors.shape}")
+    print(f"  lukeacts_vectors_all_layers.pt: {vectors.shape}")
+    print(f"  lukeacts_vectors_best.pt: {best_vectors.shape}")
 
     # ── Print Gospel geometry ────────────────────────────────────────────
-    print(f"\nGospel geometry at best layer ({best_layer}):")
-    print("  Cosine similarities between Gospel directions:")
+    print(f"\nLukeActs geometry at best layer ({best_layer}):")
+    print("  Cosine similarities between book directions:")
     for i, g1 in enumerate(GOSPELS):
         for j, g2 in enumerate(GOSPELS):
             if j > i:
