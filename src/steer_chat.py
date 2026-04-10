@@ -13,7 +13,7 @@ Commands during chat:
   /matthew 2.0    — set Matthew steering strength
   /mark -1.0      — set Mark steering (negative = suppress)
   /luke 3.0       — set Luke steering
-  /john 0.0       — disable John steering
+  /acts 0.0       — disable Acts steering
   /alpha 2.0      — set all Gospels to same strength
   /reset           — zero all steering
   /status          — show current steering config
@@ -48,7 +48,7 @@ COLORS = {
     "matthew": "\033[91m",
     "mark":    "\033[93m",
     "luke":    "\033[92m",
-    "john":    "\033[94m",
+    "acts":    "\033[94m",
 }
 HRULE = "─" * 72
 
@@ -246,7 +246,7 @@ def main():
         steerer.set_all(args.alpha)
 
     print(f"\n{BOLD}Model loaded. Steering: [{steerer.status()}]{RESET}")
-    print(f"{DIM}Commands: /matthew 2.0, /mark -1.0, /reset, /status, /temp, /tokens{RESET}")
+    print(f"{DIM}Commands: /matthew 2.0, /mark -1.0, /luke 1.5, /acts 2.0, /reset, /status, /temp, /tokens{RESET}")
     print(f"{DIM}Type 'quit' or Ctrl+C to exit.{RESET}\n")
 
     temperature = 0.7
@@ -278,7 +278,7 @@ def main():
                 print(f"{DIM}Steering reset to zero.{RESET}")
             elif cmd == "/status":
                 print(f"  Steering: {steerer.status()}")
-                print(f"  Layer: {layer_idx}, Temp: {temperature}, "
+                print(f"  Layer: {layer_indices}, Temp: {temperature}, "
                       f"Max tokens: {max_tokens}")
             elif cmd == "/temp" and len(parts) == 2:
                 temperature = float(parts[1])
