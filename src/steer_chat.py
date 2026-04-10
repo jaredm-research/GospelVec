@@ -180,7 +180,7 @@ def generate_response(model, tokenizer, prompt: str,
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Gospel Steering Chat")
+    parser = argparse.ArgumentParser(description="LukeActsVec Steering Chat")
     parser.add_argument("--alpha", type=float, default=0.0,
                         help="Initial steering strength for all Gospels")
     parser.add_argument("--layer", type=int, default=None,
@@ -194,7 +194,7 @@ def main():
     # Load vectors
     meta_path = VECTOR_DIR / "meta.json"
     if not meta_path.exists():
-        print("ERROR: No vectors found. Run extract.py and compute_vectors.py first.")
+        print("ERROR: No LukeActsVec vectors found. Run extract.py and compute_vectors.py first.")
         sys.exit(1)
 
     with open(meta_path) as f:
@@ -209,11 +209,11 @@ def main():
         min(num_layers, center_layer + args.spread + 1)
     ))
 
-    all_vectors = torch.load(VECTOR_DIR / "gospel_vectors_all_layers.pt",
+    all_vectors = torch.load(VECTOR_DIR / "lukeacts_vectors_all_layers.pt",
                              weights_only=True)
 
     print(f"\n{BOLD}{'═' * 72}{RESET}")
-    print(f"{BOLD}  GOSPEL STEERING CHAT{RESET}")
+    print(f"{BOLD}  LUKEACTSVEC STEERING CHAT{RESET}")
     print(f"{BOLD}  Model: {MODEL_ID}{RESET}")
     print(f"{BOLD}  Steering layers: {layer_indices[0]}-{layer_indices[-1]} "
           f"(center={center_layer}, {len(layer_indices)} layers){RESET}")
