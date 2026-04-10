@@ -1,7 +1,7 @@
 """
 Download KJV Gospel texts from bible-api.com.
 
-Fetches Matthew, Mark, Luke, and John chapter by chapter
+Fetches Matthew, Mark, Luke, and Acts chapter by chapter
 and saves raw text for activation extraction.
 
 Usage:
@@ -20,7 +20,7 @@ GOSPELS = {
     "matthew": ("Matthew", 28),
     "mark": ("Mark", 16),
     "luke": ("Luke", 24),
-    "john": ("John", 21),
+    "acts": ("Acts", 28),
 }
 
 
