@@ -29,7 +29,7 @@ CHUNK_MAX_TOKENS = 256  # Target tokens per text chunk
 MEAN_POOL_SKIP_TOKENS = 4  # Skip BOS + special tokens when mean-pooling
 
 # ── Gospels ──────────────────────────────────────────────────────────────
-GOSPELS = ["matthew", "mark", "luke", "john"]
+GOSPELS = ["matthew", "mark", "luke", "acts"]
 
 GOSPEL_DESCRIPTIONS = {
     "matthew": "Jewish Messiah, fulfillment of prophecy, kingdom of heaven, "
@@ -38,8 +38,8 @@ GOSPEL_DESCRIPTIONS = {
                "action over discourse, cost of discipleship, power and weakness",
     "luke":    "Universal salvation, compassion for outcasts/women/poor, "
                "parables of mercy, joy, Holy Spirit, prayer, Magnificat",
-    "john":    "Divine Word (Logos), high Christology, 'I am' statements, "
-               "love, light vs darkness, eternal life, intimate union with God",
+    "acts":    "Early church, apostolic witness, Holy Spirit, mission, "
+               "proclomation, community formation, persecution, geographic expansion",
 }
 
 # ── PCA Denoising ────────────────────────────────────────────────────────
