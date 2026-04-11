@@ -66,7 +66,7 @@ def main():
         print(f"\n--- {book_name} ---")
         text = fetch_gospel(book_name, n_chapters)
         text = clean_text(text)
-        out_path.write_text(text)
+        out_path.write_text(text, encoding="utf-8")
         print(f"  Saved: {out_path} ({len(text.split())} words)")
 
     print("\nDone.")
