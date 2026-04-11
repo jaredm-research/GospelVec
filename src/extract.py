@@ -238,7 +238,7 @@ def run_all_sequential(gpu_id: int = 0):
         raw_path = GOSPEL_DATA_DIR / f"{gospel}_raw.txt"
         if not raw_path.exists():
             raise FileNotFoundError(f"Gospel text not found: {raw_path}")
-        text = raw_path.read_text()
+        text = raw_path.read_text(encoding="utf-8")
         print(f"  Loaded {gospel}: {len(text.split())} words")
 
         # Chunk
